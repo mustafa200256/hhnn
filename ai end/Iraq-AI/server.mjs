@@ -14,7 +14,7 @@ const { processAttachments, UserFacingError, LIMITS } = await import('./src/file
 const { imageStatus, generateImage } = await import('./src/imagegen.mjs');
 
 const PORT = Number(process.env.PORT) || 3000;
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || '0.0.0.0';
 const PUBLIC_DIR = path.join(projectRoot, 'public');
 const MAX_BODY_BYTES = 30 * 1024 * 1024;
 const RATE_LIMIT_PER_MIN = Number(process.env.RATE_LIMIT_PER_MIN) || 30;
