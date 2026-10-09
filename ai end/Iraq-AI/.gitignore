@@ -1,0 +1,23 @@
+# أسرار — لا ترفعها أبداً
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# اعتماديات وبناء
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ملفات النظام والمحررات
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# سجلات ومؤقتات
+*.log
+logs/
+tmp/
+.cache/

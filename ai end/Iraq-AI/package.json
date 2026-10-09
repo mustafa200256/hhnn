@@ -1,0 +1,21 @@
+{
+  "name": "iraq-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "العراق AI — تجربة ذكاء اصطناعي عراقية مع Backend حقيقي وستة مزودين وFallback تلقائي",
+  "author": "مصطفى حسين",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node test/run.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "optionalDependencies": {
+    "pdf-parse": "^1.1.1"
+  }
+}

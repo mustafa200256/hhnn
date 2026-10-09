@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c0d0f">
+  <meta name="color-scheme" content="dark">
+  <title>العراق AI</title>
+  <meta name="description" content="العراق AI — تجربة ذكاء اصطناعي عربية حديثة تجمع بين الذكاء الاصطناعي والبرمجة والدراسة والألعاب والمساعدة الشخصية.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-splash">
+  <a class="skip-link" href="#composerInput">تخطَّ إلى كتابة الرسالة</a>
+
+  <!-- أيقونات SVG (Sprite) -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="logo" viewBox="0 0 64 64">
+      <rect x="9" y="42" width="46" height="9" rx="3" fill="currentColor" opacity=".45"/>
+      <rect x="16" y="30" width="32" height="9" rx="3" fill="currentColor" opacity=".72"/>
+      <rect x="23" y="18" width="18" height="9" rx="3" fill="currentColor"/>
+      <circle cx="32" cy="10.5" r="3" fill="var(--accent-2)"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.3A8 8 0 1 1 21 12z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></symbol>
+    <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5.2 2L15 14H9l-1.8 2A3 3 0 0 1 2 14v-2a4 4 0 0 1 4-4zM7 11v3M5.5 12.5h3M16 11.5h.01M18 13.5h.01"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM15.5 8.5l-2 5-5 2 2-5 5-2z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5zM6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zM4 21h15M8 7h7"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zM3 17l5-5 4 4 3-3 6 6M8.5 9h.01"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20M10 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM20 20v-1.5a3.5 3.5 0 0 0-2.5-3.35M15.5 4.2a3.5 3.5 0 0 1 0 6.6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></symbol>
+    <symbol id="i-paperclip" viewBox="0 0 24 24"><path d="M20 11.5l-8.2 8.2a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5" fill="currentColor"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15V5a1 1 0 0 1 1-1h10"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4M4 5v4h4M4 13a8 8 0 0 0 14.5 4M20 19v-4h-4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-4.5-4.5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M7 7h10v10H7zM10 10h4v4h-4zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1zM14 7l3 3"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01" stroke-width="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
+  </svg>
+
+  <!-- ======================= شاشة البداية ======================= -->
+  <section id="splash" class="splash" aria-label="شاشة الترحيب">
+    <canvas id="splashCanvas" aria-hidden="true"></canvas>
+    <div id="glyphLayer" class="glyph-layer" aria-hidden="true"></div>
+    <div class="splash-glow" aria-hidden="true"></div>
+    <div class="splash-content">
+      <div class="splash-logo" data-step="0"><svg class="logo-svg" aria-hidden="true"><use href="#logo"/></svg></div>
+      <h1 class="splash-title">
+        <span class="s-welcome" data-step="1">مرحباً بك في موقع</span>
+        <span class="s-brand" data-step="2">العراق AI</span>
+      </h1>
+      <p class="s-tagline" id="tagline" data-step="3">من العراق... نكتب الكود، نبني المستقبل، ونصنع الذكاء.</p>
+      <p class="s-credit" data-step="4">برمجة وتطوير: <strong>مصطفى حسين</strong></p>
+      <button id="startBtn" class="btn-start" type="button" data-step="5">
+        <span>ابدأ الآن</span>
+        <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ======================= التطبيق ======================= -->
+  <div id="app" class="app" hidden>
+    <div class="ambient" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="gridlines"></i></div>
+    <div id="backdrop" class="backdrop" hidden></div>
+
+    <aside id="sidebar" class="sidebar" aria-label="القائمة الرئيسية">
+      <div class="sb-top">
+        <button class="brand" id="brandHome" type="button" aria-label="العراق AI — الصفحة الرئيسية">
+          <svg class="brand-mark" aria-hidden="true"><use href="#logo"/></svg>
+          <span class="brand-name">العراق <b>AI</b></span>
+        </button>
+        <button id="closeDrawer" class="icon-btn only-compact" type="button" aria-label="إغلاق القائمة"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+
+      <button id="newChatBtn" class="btn-new" type="button">
+        <svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg><span>محادثة جديدة</span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="الأقسام"></nav>
+
+      <div class="hist-head">
+        <span>السجل</span>
+        <button id="clearAllBtn" class="link-btn" type="button">مسح الكل</button>
+      </div>
+      <label class="search">
+        <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="historySearch" type="search" placeholder="ابحث في المحادثات" aria-label="ابحث في المحادثات" autocomplete="off">
+      </label>
+      <ul id="historyList" class="hist-list" aria-label="المحادثات السابقة"></ul>
+
+      <div class="sb-foot">
+        <button id="aboutBtn" class="link-btn" type="button"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>حول العراق AI</button>
+        <span class="sb-credit">برمجة وتطوير: مصطفى حسين</span>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <button id="openDrawer" class="icon-btn only-compact" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="sidebar"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+        <div class="top-title">
+          <h2 id="viewTitle">المحادثة العامة</h2>
+          <span id="viewSub" class="top-sub"></span>
+        </div>
+        <div class="top-actions">
+          <button id="engineBtn" class="status-pill" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="enginePop">
+            <i class="dot" id="statusDot"></i><span id="statusText">جارٍ الفحص…</span>
+          </button>
+        </div>
+        <div id="enginePop" class="popover engine-pop" role="dialog" aria-label="حالة محرك الذكاء الاصطناعي" hidden>
+          <div class="eng-head">
+            <span class="eng-title"><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg>محرك الذكاء الاصطناعي</span>
+            <span class="eng-cap">AI Engine</span>
+          </div>
+          <dl class="eng-grid">
+            <div><dt>Provider</dt><dd id="engProvider">—</dd></div>
+            <div><dt>Model</dt><dd id="engModel" dir="ltr">—</dd></div>
+            <div><dt>Response Speed</dt><dd id="engSpeed">—</dd></div>
+            <div><dt>Mode</dt><dd id="engMode">—</dd></div>
+          </dl>
+          <ul id="engProviders" class="eng-list" aria-label="حالة المزودين"></ul>
+        </div>
+      </header>
+
+      <div class="views">
+        <!-- المحادثة -->
+        <section id="view-chat" class="view view-chat" aria-label="المحادثة">
+          <div id="thread" class="thread" role="log" aria-live="off" aria-label="سجل المحادثة" tabindex="-1">
+            <div class="thread-inner">
+              <div id="hero" class="hero"></div>
+              <div id="messages" class="messages"></div>
+              <footer class="site-footer">
+                <div class="foot-brand"><svg class="brand-mark sm" aria-hidden="true"><use href="#logo"/></svg><strong>العراق AI</strong></div>
+                <p class="foot-tag">من العراق... نكتب الكود، نبني المستقبل، ونصنع الذكاء.</p>
+                <p class="foot-copy">© 2026 العراق AI — جميع الحقوق محفوظة</p>
+                <p class="foot-dev">برمجة وتطوير: مصطفى حسين</p>
+              </footer>
+            </div>
+          </div>
+          <button id="jumpBtn" class="jump-btn" type="button" aria-label="الانتقال لآخر الرسائل" hidden><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
+
+          <div class="composer-wrap">
+            <div id="listenBar" class="listen-bar" role="status" hidden>
+              <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+              <span>أستمع...</span>
+              <button id="stopListenBtn" type="button" class="link-btn">إيقاف</button>
+            </div>
+            <div id="attachTray" class="attach-tray" hidden></div>
+            <form id="composer" class="composer" autocomplete="off">
+              <div class="plus-wrap">
+                <button id="plusBtn" type="button" class="icon-btn round" aria-label="إضافة كاميرا أو صورة أو ملف" aria-haspopup="menu" aria-expanded="false" aria-controls="plusMenu"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                <div id="plusMenu" class="menu" role="menu" hidden>
+                  <button type="button" role="menuitem" id="miCamera"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>الكاميرا</span></button>
+                  <button type="button" role="menuitem" id="miImage"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg><span>رفع صورة</span></button>
+                  <button type="button" role="menuitem" id="miFile"><svg class="ic" aria-hidden="true"><use href="#i-paperclip"/></svg><span>رفع ملف</span></button>
+                </div>
+              </div>
+              <textarea id="composerInput" rows="1" placeholder="اكتب رسالتك هنا..." aria-label="رسالتك" maxlength="20000" enterkeyhint="send"></textarea>
+              <button id="micBtn" type="button" class="icon-btn round" aria-label="إدخال صوتي" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></button>
+              <button id="sendBtn" type="submit" class="send-btn" data-mode="send" aria-label="إرسال">
+                <svg class="ic" aria-hidden="true"><use href="#i-up"/></svg><span class="lbl">إرسال</span>
+              </button>
+            </form>
+            <p class="composer-note">العراق AI قد يخطئ، راجع المعلومات المهمة. · © 2026 العراق AI — برمجة وتطوير: مصطفى حسين</p>
+            <input type="file" id="fileImage" accept="image/jpeg,image/png,image/webp" multiple hidden>
+            <input type="file" id="fileDoc" accept=".pdf,.docx,.txt,.md,.csv,.json,.xml,.html,.css,.js,.py,.java,.c,.cpp,.cs,.sql,.yml,.yaml,image/jpeg,image/png,image/webp" multiple hidden>
+          </div>
+        </section>
+
+        <!-- الصور -->
+        <section id="view-images" class="view view-page" aria-label="الصور" hidden>
+          <div class="page-inner">
+            <header class="page-head">
+              <h2>الصور</h2>
+              <p>حلّل صورة بالذكاء الاصطناعي، أو ولّد صورة عندما تتوفر هذه الخدمة.</p>
+            </header>
+            <div class="card-grid two">
+              <article class="panel card-glow">
+                <div class="panel-ic"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></div>
+                <h3>تحليل صورة</h3>
+                <p>ارفع صورة (JPG / PNG / WEBP) أو التقطها بالكاميرا، ثم اسأل عمّا فيها: وصف، نص داخل الصورة، شرح مخطط، أو رأي في التصميم.</p>
+                <div class="panel-actions">
+                  <button type="button" class="btn-soft" id="imgUploadBtn"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg>رفع صورة</button>
+                  <button type="button" class="btn-soft" id="imgCameraBtn"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg>الكاميرا</button>
+                </div>
+                <p class="panel-note" id="visionNote"></p>
+              </article>
+              <article class="panel card-glow" id="genPanel">
+                <div class="panel-ic"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></div>
+                <h3>توليد الصور</h3>
+                <p id="genState" class="gen-state">جارٍ التحقق من توفر الخدمة…</p>
+                <form id="genForm" class="gen-form">
+                  <label class="sr-only" for="genPrompt">وصف الصورة</label>
+                  <textarea id="genPrompt" rows="3" placeholder="صف الصورة التي تريدها..." disabled></textarea>
+                  <button type="submit" class="btn-soft" id="genBtn" disabled>توليد</button>
+                </form>
+                <div id="genResult" class="gen-result" hidden></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- المساعدون -->
+        <section id="view-assistants" class="view view-page" aria-label="المساعدون الشخصيون" hidden>
+          <div class="page-inner">
+            <header class="page-head">
+              <h2>المساعدون الشخصيون</h2>
+              <p>لكل مساعد تخصص وأسلوب مختلف فعلاً — اختر من تحتاجه الآن.</p>
+            </header>
+            <div class="card-grid three" id="assistantGrid"></div>
+          </div>
+        </section>
+
+        <!-- حول -->
+        <section id="view-about" class="view view-page" aria-label="حول العراق AI" hidden>
+          <div class="page-inner about">
+            <header class="page-head">
+              <svg class="brand-mark xl" aria-hidden="true"><use href="#logo"/></svg>
+              <h2>حول العراق AI</h2>
+            </header>
+            <p class="about-lead">العراق AI مشروع ذكاء اصطناعي يهدف إلى تقديم تجربة عربية حديثة تجمع بين الذكاء الاصطناعي والبرمجة والدراسة والألعاب والمساعدة الشخصية.</p>
+            <p class="about-dev">برمجة وتطوير: <strong>مصطفى حسين</strong></p>
+            <ul class="about-points">
+              <li><b>مزودون متعددون</b><span>ستة مزودين للذكاء الاصطناعي مع تبديل تلقائي عند أي تعثر.</span></li>
+              <li><b>مساعدون متخصصون</b><span>برمجة، ألعاب، دراسة، كتابة، تخطيط، ومساعد شخصي.</span></li>
+              <li><b>رؤية وملفات</b><span>تحليل الصور، وقراءة PDF وDOCX والملفات النصية.</span></li>
+              <li><b>خصوصية المفاتيح</b><span>مفاتيح الـAPI تبقى على الخادم ولا تصل إلى المتصفح أبداً.</span></li>
+            </ul>
+            <footer class="site-footer in-page">
+              <div class="foot-brand"><svg class="brand-mark sm" aria-hidden="true"><use href="#logo"/></svg><strong>العراق AI</strong></div>
+              <p class="foot-tag">من العراق... نكتب الكود، نبني المستقبل، ونصنع الذكاء.</p>
+              <p class="foot-copy">© 2026 العراق AI — جميع الحقوق محفوظة</p>
+              <p class="foot-dev">برمجة وتطوير: مصطفى حسين</p>
+            </footer>
+          </div>
+        </section>
+      </div>
+
+      <nav id="bottomNav" class="bottom-nav" aria-label="التنقل السريع"></nav>
+    </main>
+
+    <div id="toasts" class="toasts" aria-live="polite" aria-atomic="false"></div>
+    <div id="srStatus" class="sr-only" role="status" aria-live="polite"></div>
+
+    <!-- نافذة الكاميرا -->
+    <dialog id="cameraDialog" class="dialog camera-dialog" aria-label="الكاميرا">
+      <div class="cam-stage">
+        <video id="camVideo" playsinline muted autoplay></video>
+        <p id="camError" class="cam-error" hidden></p>
+      </div>
+      <div class="dialog-actions">
+        <button type="button" class="btn-soft" id="camClose">إغلاق</button>
+        <button type="button" class="btn-soft" id="camFlip" aria-label="تبديل الكاميرا"><svg class="ic" aria-hidden="true"><use href="#i-flip"/></svg></button>
+        <button type="button" class="btn-primary" id="camShot"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg>التقاط</button>
+      </div>
+    </dialog>
+
+    <!-- نافذة التأكيد -->
+    <dialog id="confirmDialog" class="dialog confirm-dialog" aria-labelledby="confirmText">
+      <p id="confirmText" class="confirm-text"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn-soft" id="confirmNo">إلغاء</button>
+        <button type="button" class="btn-danger" id="confirmYes">تأكيد</button>
+      </div>
+    </dialog>
+  </div>
+  <script type="module" src="splash.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
